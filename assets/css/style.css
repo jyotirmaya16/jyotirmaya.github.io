@@ -9,10 +9,32 @@
 html{
   scroll-behavior: smooth;
 }
+/* ++++++++++++++++custom scroll bar +++++++++++++++ */
 
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background:var(--scrollback); /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#5b29efa7,#af6befa1); /* Color of the thumb */
+  border-radius: 10px; /* Roundness of the thumb */
+  width: 1000px;
+}
+
+/* Define the container height for scrolling */
+.scrollable-container {
+  height: 200px;
+  overflow-y: scroll; /* Enable vertical scrollbar */
+  
+}
 /*=====color variables ===========*/
 :root {
-  --first-color: #6429ef;
+  --herocontainer:linear-gradient(#5b29ef,#af6bef);
+  --first-color: #5b29ef;
   --second-color: #e7dbdb;
   --third-color: #ffffff;
   --black-color: #000000;
@@ -32,7 +54,50 @@ html{
   --dpcircle:#8f889f;
   --mail:#000000;
   --footericon:#6300ae;
+  --scrollback:#e7dbdb;
+  --box-shadow-scroll: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
 }
+
+/*=====dark mode ===========*/
+body.dark-mode {
+  --herocontainer:linear-gradient(#5327d8,#9b5ed5);
+  --black-color: #ffffff;
+  --dark-blue: #6429ef;
+  --bg-color: #222;
+  --blur-element-color: #555;
+  --shadow-2: 0 0 20px 5px rgb(232, 219, 219, 0.3);
+  --header-l: #4f4f4f80;
+  --text-color-second:rgb(199, 199, 199);
+  --secolorsubtxt:#b0b0b0;
+  --footercolor:#4a425d;
+  --dpcircle:#464b54;
+  --mail:#a8a7a7;
+  --footericon:#b786ff;
+  --scrollback:#393939; 
+  --box-shadow-scroll: 9px 9px 33px #141414, -9px -9px 33px #434343;
+}
+
+body {
+  background-color: var(--bg-color);
+  transition: 0.3s;
+}
+
+.nav-link {
+  color: var(--black-color);
+  transition: 0.3s;
+}
+
+body.dark-mode .nav-link {
+  color: #ffffff; /* Change text color in dark mode */
+}
+body.dark-mode .nav-link:hover {
+  color: var(--first-color);
+}
+.header .dark-mode{
+  background-color: var(--header-l); 
+}
+
+
 /*=====dark mode star son wala ===========*/
 .theme-switch {
   --toggle-size: 12px;
@@ -292,43 +357,6 @@ html{
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
-/*=====dark mode ===========*/
-body.dark-mode {
-  --black-color: #ffffff;
-  --dark-blue: #6429ef;
-  --bg-color: #222;
-  --blur-element-color: #555;
-  --shadow-2: 0 0 20px 5px rgb(232, 219, 219, 0.3);
-  --header-l: #4f4f4f80;
-  --text-color-second:rgb(199, 199, 199);
-  --secolorsubtxt:#b0b0b0;
-  --footercolor:#4a425d;
-  --dpcircle:#464b54;
-  --mail:#a8a7a7;
-  --footericon:#b786ff;
-}
-
-body {
-  background-color: var(--bg-color);
-  transition: 0.3s;
-}
-
-.nav-link {
-  color: var(--black-color);
-  transition: 0.3s;
-}
-
-body.dark-mode .nav-link {
-  color: #ffffff; /* Change text color in dark mode */
-}
-body.dark-mode .nav-link:hover {
-  color: var(--first-color);
-}
-.header .dark-mode{
-  background-color: var(--header-l); 
-}
-
 /*=====blur background ===========*/
 .wrapper {
   position: absolute;
@@ -572,7 +600,7 @@ header {
 .hero-img-container {
     width: 400px;
     height: 405px;
-    background: var(--first-color);
+    background: var(--herocontainer);
     border-radius: 46% 54% 34% 66% / 54% 61% 39% 46%;
     overflow: hidden;
     animation: fade-left 1.4s ease-out, imgFloat 7s ease-in-out infinite;
@@ -821,6 +849,7 @@ h3{
 
 .description h4 {
   text-transform: uppercase;
+  text-decoration: underline;
 }
 
 input {
@@ -986,23 +1015,30 @@ a {
 
 /*dp contact */
 .dpcircle {
-  width: 190px;
-  height: 195px;
-  background: var(--dpcircle);
+  width: 150px;
+  height: 155px;
+  background: linear-gradient(#614385ae,#516395b2);
   border-radius: 50%;
-  overflow: hidden;
-  margin-left: 13%;
-  transform: translateY(20%);
+  /* overflow: hidden; */
+  margin-left: 15%;
+  transform: translateY(40%);
 }
 
 .dp-hero-image {
-  height: 230px;
-  margin-left: -20px;
+  height: 280px;
+  margin-left: -65px;
+  transform: translateY(-25%);
+}
+.arrow{
+  height: 220px;
+  margin-left: 150%;
+  transform: translateY(-165%);
+  mix-blend-mode: lighten;
 }
 /* gmail and contact */
 .contact-info{
   margin-left: 50%;
-  transform: translateY(-100%);
+  transform: translateY(-65%);
   text-decoration: none;
 }
 .contact-info>h2{
@@ -1073,6 +1109,44 @@ footer{
 .bottom-footer{
   font-size: 14px;
   margin-top: 10px;
+}
+/*===================== back to top button================== */
+.new-button {
+  display: flex;
+  height: 3em;
+  width: 166px;
+  border-radius: 20px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  background: #000000;
+  margin: 0 auto;
+  margin-bottom: 4%;
+  box-shadow: 9px 9px 33px #ffffff00, -9px -9px 33px #ffffff00;
+  background:var(--scrollback);
+  /* 434343 */
+  color:var(--text-color-second);
+}
+
+
+.new-button > i {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  color: #3d7eae;
+  transition: all 0.4s ease-in;
+}
+
+.new-button:hover > i {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+.new-button:hover {
+  box-shadow: var(--box-shadow-scroll);
+  /* box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff; */
+  transform: translateY(-2px);
+  background: var(--scrollback);
 }
 
 /*============== resplonsive design============ */
@@ -1201,4 +1275,3 @@ footer{
   width: 100%;
 }
 }
-
