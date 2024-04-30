@@ -31,15 +31,19 @@ html{
   overflow-y: scroll; /* Enable vertical scrollbar */
   
 }
+
 /*=====color variables ===========*/
 :root {
+  --homee:linear-gradient(#5b5d96a7 , #ffffff 70%);
   --herocontainer:linear-gradient(#5b29ef,#af6bef);
+  --first-color2:rgba(91, 41, 239, 0);
   --first-color: #5b29ef;
   --second-color: #e7dbdb;
   --third-color: #ffffff;
   --black-color: #000000;
   --dark-blue: #3e227a;
   --bg-color: #ffffff;
+  --blur-element-color2: #e7dbdb00;
   --blur-element-color: #e7dbdb;
   --shadow-1: 0 0 20px 5px rgb(101, 41, 240, 0.5);
   --shadow-2: 0 0 20px 5px rgb(232, 219, 219);
@@ -56,10 +60,13 @@ html{
   --footericon:#6300ae;
   --scrollback:#e7dbdb;
   --box-shadow-scroll: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  --contact:#fff;
+  --h1big:rgba(0, 0, 0, 0.1);
 }
 
 /*=====dark mode ===========*/
 body.dark-mode {
+  --homee:#222;
   --herocontainer:linear-gradient(#5327d8,#9b5ed5);
   --black-color: #ffffff;
   --dark-blue: #6429ef;
@@ -75,13 +82,19 @@ body.dark-mode {
   --footericon:#b786ff;
   --scrollback:#393939; 
   --box-shadow-scroll: 9px 9px 33px #141414, -9px -9px 33px #434343;
+  --contact:#c9c9c9;
+  --h1big:rgba(255, 255, 255, 0.1);
+  --blur-element-color2: #555;
+  --first-color2:rgb(91, 41, 239);
 }
 
 body {
   background-color: var(--bg-color);
   transition: 0.3s;
 }
-
+.home {
+  background: var(--homee);
+}
 .nav-link {
   color: var(--black-color);
   transition: 0.3s;
@@ -372,7 +385,7 @@ body.dark-mode .nav-link:hover {
   position: absolute;
   width: 200px;
   height: 200px;
-  background-color: var(--blur-element-color);
+  background-color: var(--blur-element-color2);
   border-radius: 50%;
   z-index: 0;
 }
@@ -383,7 +396,7 @@ body.dark-mode .nav-link:hover {
   right: 10vw;
   width: 100px;
   height: 100px;
-  background-color: var(--blur-element-color);
+  background-color: var(--blur-element-color2);
   border-radius: 50%;
   z-index: 0;
 }
@@ -393,7 +406,7 @@ body.dark-mode .nav-link:hover {
   left: 60%;
   width: 50px;
   height: 50px;
-  background-color: var(--first-color);
+  background-color: var(--first-color2);
   border-radius: 50%;
   z-index: 0;
 }
@@ -681,6 +694,17 @@ header {
 }
 
 /*============== about section============ */
+.top-header h1.big {
+  position: absolute;
+  top: -4px;
+  left: 32%;
+  font-size: 7vw;
+  color: var(--h1big);
+  z-index: -1;
+  font-weight: 900; 
+  font-family: Poppins;
+}
+
 .section{
   padding-block: 5em;
   margin: 100px;
@@ -701,9 +725,11 @@ header {
   margin-bottom: 5em;
 } 
 .top-header h1{
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-color-second);
   margin-bottom: 10px;
+  font-family: Poppins;
+  font-size: 50px;
 }
 .top-header span{
   color: #999;
@@ -713,6 +739,7 @@ h3{
   font-weight: 600;
   color: var(--text-color-second);
   margin-bottom: 15px;
+  font-family: Poppins;
 }
 .about-info{
   position: relative;
@@ -729,6 +756,7 @@ h3{
   text-align: center;
   font-size: 15px;
   color: #777;
+  letter-spacing: 1.5px; 
 }
 .about-btn .btn {
   display: flex;
@@ -761,15 +789,27 @@ h3{
   gap: 10px;
 }
 .skills-box {
-  margin: 0;
+  /* margin: 0; */
+  margin-bottom: -20px;
 }
+
 .skills-header {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+}
+.skills-header2 {
+  margin-bottom: 2px;
+}
+.skills-header3 {
+  margin-bottom: 2px;
+}
+.skills-header3 {
+  margin-bottom: 2px;
 }
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
+  margin-bottom: 4%;
 }
 .skills-list span {
   font-size: 14px;
@@ -777,6 +817,176 @@ h3{
   color: var(--bg-color);
   padding: 2px 10px;
   border-radius: 5px;
+}
+
+/* skills icon  */
+.skills-header img{
+  height: 20px;
+  width: 20px;
+  margin-left:14%;
+  margin-bottom: -5%;
+}
+.skills-header2 img{
+  height: 20px;
+  width: 20px;
+  margin-left:8%;
+  margin-bottom: -5%;
+}
+.skills-header3 img{
+  height: 25px;
+  width: 25px;
+  margin-left:16%;
+  margin-bottom: -6%;
+}
+.skills-header4 img{
+  height: 28px;
+  width: 28px;
+  margin-left:10%;
+  margin-bottom: -6%;
+}
+
+/* about counter python*/
+.containerz{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  margin-bottom: -20%;
+  margin-top: -1%;
+}
+
+.progress-bar1{
+  background: #959595;
+  width: 400px;
+  height: 10px;
+  border-radius: 5px;
+}
+.progress-bar1 div{
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
+}
+.count{
+  margin-left:350px;
+  transform: translateY(-185%);
+  position: fixed;
+  color: var(--text-color-second);
+  font-family: Poppins;
+  font-size: 15px;
+}
+.progress-bar1 div span{
+  opacity: 0;
+} 
+
+.python{
+  background:linear-gradient(-255deg,#d1d1d1,#ff00d0) ;
+  animation: python 1.7s linear forwards ;
+}
+
+
+@keyframes python{
+  100%{
+      width: 90%;
+  }
+}
+
+/* about counter sql*/
+.containerx{
+  width: 100%;
+  height: 20vh;
+  background: #22222200;
+  display: flex;
+  margin-bottom: -20%;
+  margin-top: -1%;
+}
+.progress-bar2{
+  background: #959595;
+  width: 400px;
+  height: 10px;
+  border-radius: 5px;
+}
+.progress-bar2 div{
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
+}
+.progress-bar2 div span{
+  opacity: 0;
+}
+
+.sql{
+  background:linear-gradient(-255deg,#d1d1d1,#00a6ff) ;
+  animation: sql 1.8s linear forwards ;
+}
+@keyframes sql{
+  100%{
+      width: 95%;
+  }
+}
+/* about counter tableau*/
+.containery{
+  width: 100%;
+  height: 20vh;
+  background: #22222200;
+  display: flex;
+  margin-bottom: -20%;
+  margin-top: -1%;
+}
+.progress-bar3{
+  background: #959595;
+  width: 400px;
+  height: 10px;
+  border-radius: 5px;
+}
+.progress-bar3 div{
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
+}
+.progress-bar3 div span{
+  opacity: 0;
+}
+
+.tableau{
+  background:linear-gradient(-255deg,#d1d1d1,#ff8400) ;
+  animation: tableau 1.6s linear forwards ;
+}
+
+@keyframes tableau{
+  100%{
+      width: 86%;
+  }
+}
+/* about counter excel*/
+.containerw{
+  width: 100%;
+  height: 20vh;
+  background: #22222200;
+  display: flex;
+  margin-bottom: -20%;
+  margin-top: -1%;
+}
+.progress-bar4{
+  background: #959595;
+  width: 400px;
+  height: 10px;
+  border-radius: 5px;
+}
+.progress-bar4 div{
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
+}
+.progress-bar4 div span{
+  opacity: 0;
+}
+@keyframes excel{
+  100%{
+      width: 96%;
+  }
+}
+.excel{
+  background:linear-gradient(-255deg,#d1d1d1,#ae00ff) ;
+  animation: excel 1.7s linear forwards ;
 }
 /*=============project sections =========*/
 #projects {
@@ -810,6 +1020,7 @@ h3{
   align-items: flex-end;
   transition: .6s cubic-bezier(.28,-0.03,0,.99);
   box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+
 }
 
 .card > .row {
@@ -1037,7 +1248,7 @@ a {
 }
 /* gmail and contact */
 .contact-info{
-  margin-left: 50%;
+  margin-left: 46%;
   transform: translateY(-65%);
   text-decoration: none;
 }
@@ -1047,15 +1258,15 @@ a {
   font-family: "poppins", sans-serif;
 }
 .mailcall {
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 
 .mailcall a {
   display: block;
-  color:var(--mail); /* Adjust the color as needed */
+  color:var(--mail); 
   text-decoration: none;
-  margin-bottom: 10px; /* Adjust as needed */
-
+  margin-bottom: 10px; 
+  font-size: 18px;
 }
 
 .mailcall a:hover {
@@ -1063,10 +1274,27 @@ a {
   transition: .3s ease-out;
 }
 
-.mailcall i {
+/* .mailcall i {
   margin-right: 5px;
   color: var(--first-color);
   font-size: 20px;
+} */
+
+.mailcall span{
+    height: auto;
+    background:var(--contact);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    border-radius: 50%;
+    /* -webkit-box-shadow: none !important;
+    box-shadow: none !important; */
+    border: 2px solid #b1b493; 
+}
+
+.mailcall span{
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 10px;
 }
 
 
@@ -1275,4 +1503,3 @@ footer{
   width: 100%;
 }
 }
-
