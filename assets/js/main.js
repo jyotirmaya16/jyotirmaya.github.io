@@ -160,4 +160,3 @@ counts.forEach((counter) => {
     }
     upDate()
 })
-
